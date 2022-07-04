@@ -1,5 +1,9 @@
 package Data;
 
+import Characters.LazyHero;
+import Characters.NormalHero;
+import Characters.StudyHero;
+import Characters.WarriorHero;
 import Game.*;
 
 import javax.swing.table.DefaultTableModel;

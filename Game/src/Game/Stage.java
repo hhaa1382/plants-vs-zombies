@@ -78,6 +78,7 @@ public class Stage extends JFrame{
             try {
                 closed=true;
                 this.close();
+                scene.endMassage="Leave";
 
                 this.dispose();
                 new StartPage();
@@ -324,6 +325,11 @@ public class Stage extends JFrame{
 
                     Thread.sleep(4000);
                     closed=true;
+
+                    synchronized (clickedObj){
+                        clickedObj.notify();
+                    }
+
                     this.close();
                     this.dispose();
 
@@ -387,9 +393,9 @@ public class Stage extends JFrame{
     }
 
     void close(){
-        heroPower=200;
+        heroPower=800;
         win=false;
-        lblHeroPower.setText("Power = 200");
+        lblHeroPower.setText("Power = "+heroPower);
     }
 
     int checkNextEnemy(){
@@ -445,9 +451,11 @@ public class Stage extends JFrame{
     void checkClicked() throws InterruptedException {
         synchronized (clickedObj){
             clickedObj.wait();
-            Thread.sleep(4000);
-            setButtonBackground(Color.WHITE);
-            isClicked=false;
+            if(!closed) {
+                Thread.sleep(4000);
+                setButtonBackground(Color.WHITE);
+                isClicked = false;
+            }
         }
     }
 }

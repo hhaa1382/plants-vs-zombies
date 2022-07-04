@@ -1,6 +1,7 @@
 package Game;
 
 import Data.Read;
+import Data.Write;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -239,9 +240,11 @@ public class StartPage extends JFrame {
                 this.dispose();
                 stopMusic();
                 try {
+                    Write.deleteInfo();
                     new Stage();
-                } catch (UnsupportedAudioFileException | LineUnavailableException |
-                        IOException | InterruptedException ignore) {
+                }
+                catch (UnsupportedAudioFileException | LineUnavailableException |
+                        IOException | InterruptedException | SQLException | ClassNotFoundException ignore) {
                 }
                 temp.dispose();
             }

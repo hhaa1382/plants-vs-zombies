@@ -449,7 +449,6 @@ public class Elements extends JPanel implements ActionListener {
                         }
                     }
                 }
-
                 if(enemyCounter==0 && enemyCharacter.getHealth()<=0){
                     Panel.enemies.remove(this);
                     Stage.numberOfEnemies--;
@@ -587,7 +586,6 @@ public class Elements extends JPanel implements ActionListener {
                         }
                     }
                 }
-
                 if (enemyCounter == 0 && heroCharacter.getHealth() <= 0) {
                     Panel.heroes.remove(this);
                     timer.stop();
